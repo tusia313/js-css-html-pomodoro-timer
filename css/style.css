@@ -15,7 +15,7 @@ body {
     height: 100vh;
     align-items: center;
     text-align: center;
-    color: #8D93B9;
+    color: #8D93B9 !important;
     font-family: "Ubuntu", sans-serif;
     text-transform: uppercase;
 }
@@ -35,7 +35,7 @@ h1 {
 
 .custom-slider {
     width: 100%;
-    height: 1.5rem;
+    height: 100%;
     background-color: rgba(199, 240, 189, 0.3);
     border-radius: 5px;
 }
@@ -43,6 +43,41 @@ h1 {
 .fill {
     width: 100%;
     height: 1.5rem;
-    background-color: #B9ECAC;
+    background-color: #9ef689;
     border-radius: 5px;
+}
+
+.input-container {
+    height: 5rem;
+    width: 26rem;
+    display: flex;
+    text-align: center;
+}
+
+.input-container input {
+    background-color: rgba(174, 213, 213, 0.5);
+    border-radius: 2rem 0 0 2rem;
+    padding: 0.4rem 0;
+    width: 18rem;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+.input-container .submit-button {
+    background-color: #b8ebc7;
+    border: none;
+    height: 100%;
+    width: 8rem;
+    padding: 0.4rem 0;
+    color: white;
+    border-radius: 0 2rem 2rem 0;
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: lowercase;
+    text-align: center;
+ 
 }

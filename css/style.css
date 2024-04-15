@@ -57,6 +57,7 @@ h1 {
     height: 60px;
     display: flex;
     color: rgb(255, 255, 255);
+    text-align: left;
 }
 
 .task-block p {
@@ -70,7 +71,7 @@ h1 {
     cursor: pointer;
 }
 
-.task-block .controller-button {
+/* .task-block .controller-button {
     height: 100%;
     border: none;
     width: 120px;
@@ -79,7 +80,7 @@ h1 {
     font-weight: bold;
     font-size: 1.2rem;
     background-color: rgba(184, 235, 199, 1);
-}
+} */
 
 .task-block .controller-button:hover {
     background-color:rgb(141, 147, 185);

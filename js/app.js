@@ -1,4 +1,5 @@
 const taskContainer = document.querySelector('.task-container')
+const submitButton = document.querySelector('.submit-button')
 
 let tasks = [
     {
@@ -42,3 +43,22 @@ function deleteTask(e) {
     e.target.parentNode.remove()
     // console.log(tasks) to do make disappear from array !
 }
+
+function addTask() {
+    console.log("przed kliknięciem: ", taskContainer)
+    const input = document.querySelector('input')
+    const value = input.value
+    console.log(value)
+    
+    taskContainer.innerHTML = ''
+    console.log('po kliknięciu: ', taskContainer)
+    if (value) {
+        tasks.push({
+            name: value,
+            priority: tasks.length
+        })
+        render()
+    }
+
+}
+submitButton.addEventListener('click', addTask)

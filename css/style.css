@@ -53,34 +53,34 @@ h1 {
     background-color: rgba(174, 213, 213, 1);
     border-radius: 1.2rem;
     margin: 0.7rem 0;
-    width: 412px;
-    height: 60px;
+    width: 25.5rem;
+    height: 4rem;
     display: flex;
     color: rgb(255, 255, 255);
     text-align: left;
 }
 
 .task-block p {
-    width: 242px;
+    width: 15rem;
     font-size: 1.2rem;
 }
 
 .task-block .delete-icon {
-    width: 50px;
+    width: 3rem;
     text-align: center;
     cursor: pointer;
 }
 
-/* .task-block .controller-button {
+.task-block .controller-button {
     height: 100%;
     border: none;
-    width: 120px;
+    width: 7.5rem;
     border-radius: 0 1.2rem 1.2rem 0;
     color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 1.2rem;
     background-color: rgba(184, 235, 199, 1);
-} */
+}
 
 .task-block .controller-button:hover {
     background-color:rgb(141, 147, 185);
@@ -89,15 +89,15 @@ h1 {
 }
 
 .input-container {
-    height: 5rem;
-    width: 26rem;
+    height: 4.5rem;
+    width: 25.5rem;
     display: flex;
     text-align: center;
 }
 
 .input-container input {
     background-color: rgba(174, 213, 213, 0.5);
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 1.7rem 0 0 1.7rem;
     height: 100%;
     width: 18rem;
     border: none;
@@ -109,15 +109,14 @@ h1 {
 }
 
 .input-container .submit-button {
-    /* padding: 0; */
     background-color: rgb(184, 235, 199);
     border: none;
-    height: 5.1rem;
-    width: 7rem;
+    height: 4.6rem;
+    width: 7.5rem;
     color: white;
-    border-radius: 0 2rem 2rem 0;
+    border-radius: 0 1.7rem 1.7rem 0;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     text-transform: lowercase;
     text-align: center;
  

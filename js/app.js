@@ -1,5 +1,13 @@
 const taskContainer = document.querySelector('.task-container')
 const submitButton = document.querySelector('.submit-button')
+const timeLeftDisplay = document.querySelector('#time-left')
+const sliderFill = document.querySelector('.fill')
+
+
+const startCount = 5
+// let a nie const!
+let timeId
+let timeLeft = startCount
 
 let tasks = [
     {
@@ -11,7 +19,21 @@ let tasks = [
         priority: 1
     }
 ]
-// sort by priority
+
+function startCoundown() {
+    timeId = setInterval(() => {
+        timeLeft--
+        timeLeftDisplay.textContent = timeLeft
+        sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
+        if ( timeLeft <= 0 ) {
+            clearInterval(timeId)
+        }
+
+    }, 1000)
+}
+
+startCoundown()
+
 const descendingTasks = tasks.sort((a, b) => a.priority - b.priority)
 
 function render() {
@@ -49,15 +71,16 @@ function addTask() {
     const input = document.querySelector('input')
     const value = input.value
     console.log(value)
-    
-    taskContainer.innerHTML = ''
-    console.log('po kliknięciu: ', taskContainer)
+
     if (value) {
+        taskContainer.innerHTML = ''
+        input.value = ''
         tasks.push({
             name: value,
             priority: tasks.length
         })
         render()
+        console.log('po kliknięciu: ', taskContainer)
     }
 
 }

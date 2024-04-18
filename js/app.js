@@ -20,24 +20,32 @@ let tasks = [
     }
 ]
 
-function startCoundown() {
+function handleClick(button) {
+    startCoundown(button)
+}
+
+function startCoundown(button) {
     timeId = setInterval(() => {
         timeLeft--
         timeLeftDisplay.textContent = timeLeft
         sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
         if ( timeLeft <= 0 ) {
             clearInterval(timeId)
+    
+            delete deleteTask[button.id]
+            button.parentNode.remove()
+            timeLeft = startCount
+            timeLeftDisplay.textContent = timeLeft
+            sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
         }
 
     }, 1000)
 }
 
-startCoundown()
-
 const descendingTasks = tasks.sort((a, b) => a.priority - b.priority)
 
 function render() {
-    descendingTasks.forEach(task => {
+    descendingTasks.forEach((task, index) => {
         const taskBlock = document.createElement('div')
         const title = document.createElement('p')
         const deleteElement = document.createElement('p')
@@ -51,7 +59,13 @@ function render() {
         deleteElement.textContent = '✖'
         controller.textContent = 'start'
 
+        // controller.setAttribute('id') = index lub
+        controller.id = index
+        // dodajemy index do zmiennych funkcji .forEach
+
         deleteElement.addEventListener('click', deleteTask)
+        // jak dobrze rozumiem, to nie trzeba by tu był pisać callback function, ale że przechodzimy przez button to trzeba
+        controller.addEventListener('click', () => handleClick(controller))
 
         taskBlock.append(deleteElement, title, controller)
         taskContainer.append(taskBlock)

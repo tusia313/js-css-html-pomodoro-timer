@@ -40,6 +40,7 @@ h1 {
     height: 100%;
     background-color: rgba(199, 240, 189, 0.3);
     border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 .fill {
@@ -76,15 +77,13 @@ h1 {
     border: none;
     width: 7.5rem;
     border-radius: 0 1.2rem 1.2rem 0;
-    color: rgb(255, 255, 255);
+    /* color: rgb(141, 147, 185); */
     font-weight: bold;
     font-size: 1.2rem;
-    background-color: rgba(184, 235, 199, 1);
+    /* background-color: rgba(184, 235, 199, 1); */
 }
 
 .task-block .controller-button:hover {
-    background-color:rgb(141, 147, 185);
-    /* color: rgba(174, 213, 213, 0.5); */
     cursor: grab;
 }
 
@@ -129,4 +128,14 @@ h1 {
 
 .sub-text {
     margin: 0.2rem;
+}
+
+.active {
+    background-color: rgb(255, 165, 0);
+    color: rgb(255, 255, 255);
+}
+
+.paused {
+    background-color: rgb(238, 130, 238);
+    color: rgb(255, 255, 255);
 }

@@ -17,11 +17,40 @@ let tasks = [
     {
         name: "Adoration !",
         priority: 1
+    },
+    {
+        name: "Chodakowska workout",
+        priority: 3
     }
 ]
 
 function handleClick(button) {
-    startCoundown(button)
+    switch (button.textContent) {
+        case 'active':
+            button.textContent = 'paused'
+            button.classList.add('paused')
+            clearInterval(timeId)
+            break
+        case 'paused':
+            button.textContent = 'active'
+            button.classList.add('active')
+            startCoundown(button)
+            break
+        default:
+            const allButtons = document.querySelectorAll('.controller-button')
+            allButtons.forEach( button => {
+                button.textContent = 'start'
+                button.classList.remove('active', 'paused')
+                clearInterval(timeId)
+                timeLeft = startCount
+                timeLeftDisplay.textContent = timeLeft
+                sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
+            })
+            button.textContent = 'active'
+            button.classList.add('active')
+            startCoundown(button)
+            break
+    }
 }
 
 function startCoundown(button) {
@@ -29,9 +58,9 @@ function startCoundown(button) {
         timeLeft--
         timeLeftDisplay.textContent = timeLeft
         sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
-        if ( timeLeft <= 0 ) {
+        if (timeLeft <= 0) {
             clearInterval(timeId)
-    
+
             delete deleteTask[button.id]
             button.parentNode.remove()
             timeLeft = startCount

@@ -4,7 +4,7 @@ const timeLeftDisplay = document.querySelector('#time-left')
 const sliderFill = document.querySelector('.fill')
 
 
-const startCount = 5
+const startCount = 25 * 60
 // let a nie const!
 let timeId
 let timeLeft = startCount
@@ -23,6 +23,13 @@ let tasks = [
         priority: 3
     }
 ]
+
+function convertToMin(secondsLeft) {
+    const minutes = Math.floor(secondsLeft / 60)
+    const seconds = secondsLeft - minutes * 60
+    // to jest arcyciekawe, polecam Ania "converting seconds"
+    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+}
 
 function handleClick(button) {
     switch (button.textContent) {
@@ -43,7 +50,7 @@ function handleClick(button) {
                 button.classList.remove('active', 'paused')
                 clearInterval(timeId)
                 timeLeft = startCount
-                timeLeftDisplay.textContent = timeLeft
+                timeLeftDisplay.textContent = convertToMin(timeLeft)
                 sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
             })
             button.textContent = 'active'
@@ -56,7 +63,7 @@ function handleClick(button) {
 function startCoundown(button) {
     timeId = setInterval(() => {
         timeLeft--
-        timeLeftDisplay.textContent = timeLeft
+        timeLeftDisplay.textContent = convertToMin(timeLeft)
         sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
         if (timeLeft <= 0) {
             clearInterval(timeId)
@@ -64,7 +71,7 @@ function startCoundown(button) {
             delete deleteTask[button.id]
             button.parentNode.remove()
             timeLeft = startCount
-            timeLeftDisplay.textContent = timeLeft
+            timeLeftDisplay.textContent = convertToMin(timeLeft)
             sliderFill.style.width = (timeLeft / startCount) * 100 + '%'
         }
 

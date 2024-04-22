@@ -24,6 +24,7 @@ let tasks = [
     }
 ]
 
+// convert secodns to minutes format for display
 function convertToMin(secondsLeft) {
     const minutes = Math.floor(secondsLeft / 60)
     const seconds = secondsLeft - minutes * 60
@@ -31,6 +32,7 @@ function convertToMin(secondsLeft) {
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
 
+// handle click the start/pause functionality
 function handleClick(button) {
     switch (button.textContent) {
         case 'active':
@@ -40,12 +42,13 @@ function handleClick(button) {
             break
         case 'paused':
             button.textContent = 'active'
+            button.classList.remove('paused')
             button.classList.add('active')
             startCoundown(button)
             break
         default:
             const allButtons = document.querySelectorAll('.controller-button')
-            allButtons.forEach( button => {
+            allButtons.forEach(button => {
                 button.textContent = 'start'
                 button.classList.remove('active', 'paused')
                 clearInterval(timeId)
@@ -60,6 +63,7 @@ function handleClick(button) {
     }
 }
 
+// countdown timer
 function startCoundown(button) {
     timeId = setInterval(() => {
         timeLeft--
@@ -80,6 +84,7 @@ function startCoundown(button) {
 
 const descendingTasks = tasks.sort((a, b) => a.priority - b.priority)
 
+// create task in the array
 function render() {
     descendingTasks.forEach((task, index) => {
         const taskBlock = document.createElement('div')
@@ -110,17 +115,16 @@ function render() {
 
 render()
 
+// delete a task
 function deleteTask(e) {
-    console.log(e.target.parentNode)
     e.target.parentNode.remove()
-    // console.log(tasks) to do make disappear from array !
+    delete descendingTasks[e.target.parentNode.lastChild.id]
 }
 
+// add a task
 function addTask() {
-    console.log("przed kliknięciem: ", taskContainer)
     const input = document.querySelector('input')
     const value = input.value
-    console.log(value)
 
     if (value) {
         taskContainer.innerHTML = ''
@@ -130,7 +134,6 @@ function addTask() {
             priority: tasks.length
         })
         render()
-        console.log('po kliknięciu: ', taskContainer)
     }
 
 }

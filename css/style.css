@@ -3,14 +3,14 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(../img/low-poly-grid-haikei.svg);
-    background-size: cover;
-    /* background: linear-gradient(
+    /* background: url(../img/low-poly-grid-haikei.svg);
+    background-size: cover; */
+    background: linear-gradient(
         to right,
         #A9B3CE,
         #7CDEDC,
         #7284A8
-    ); */
+    );
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -18,7 +18,7 @@ body {
     text-align: center;
     color: rgb(141, 147, 185) !important;
     font-family: "Ubuntu", sans-serif;
-    
+
 }
 
 .pomodoro-timer {
@@ -26,7 +26,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 18px;
     background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3) ;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
 }
 
 h1 {
@@ -118,7 +118,7 @@ h1 {
     font-size: 1.3rem;
     text-transform: lowercase;
     text-align: center;
- 
+
 }
 
 .input-container .submit-button:hover {
@@ -131,11 +131,11 @@ h1 {
 }
 
 .active {
-    background-color: rgb(255, 165, 0);
+    background-color: rgba(255, 165, 0, 1);
     color: rgb(255, 255, 255);
 }
 
 .paused {
-    background-color: rgb(238, 130, 238);
+    background-color: rgb(147, 240, 203);
     color: rgb(255, 255, 255);
 }

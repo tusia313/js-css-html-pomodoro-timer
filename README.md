@@ -3,11 +3,17 @@
 Huge project for me; hard if I might be honest - countdown, JS syntax practice, objects and converting units. So pround of itHere I could again have practiced countdown (setIntervals() - never enough exercises for this) as well as deleting and adding tasks in JS.
 
 ## 🎯 First look 
-By default we have 3 tasks, another can be easily added as well as deleted. Then one of them might be activated or paused. And all over again :)
+By default we have 3 tasks... 
 
 ![first page](./img/screen_1.png)
-![first page](./img/screen_2.png)
+
+another can be easily added as well as deleted.
+
 ![first page](./img/screen_3.png)
+
+Then one of them might be activated or paused. And all over again :)
+
+![first page](./img/screen_2.png)
 
 ## 🎯 Technologies
 
